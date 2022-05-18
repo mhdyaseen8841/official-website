@@ -19,7 +19,7 @@
   <link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -57,7 +57,7 @@
             <a class="nav-link js-scroll" href="#work">Work</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="assets/img/resume-pdf.pdf" >Resume</a>
+            <a class="nav-link js-scroll" href="assets/img/MohammedYaseenResume.pdf" >Resume</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll" href="#contact">Contact</a>
@@ -135,7 +135,7 @@
                       </h5>
                     </div>
                     <p class="lead">
-                      I'm a 2nd Year BCA Student in Al-Ameen College,Edathala.<br>I'm a self-taught web developer with a strong passion in tech and am always curious to know about all the technological aspects that makes revolutionary changes in our day-to-life.
+                      I'm a 3rd Year BCA Student in Al-Ameen College,Edathala.<br>I'm a self-taught web developer with a strong passion in tech and am always curious to know about all the technological aspects that makes revolutionary changes in our day-to-life.
                     </p>
                     <p class="lead">
                      
@@ -203,7 +203,7 @@
               <div class="service-content">
                 <h2 class="s-title">App Development</h2>
                 <p class="s-description text-center">
-                  I connect and co-ordinate web developers for making best Application out there.
+                  I connect and co-ordinate App developers for making best Application out there.
                 </p>
               </div>
             </div>
@@ -345,35 +345,45 @@
         </div>
       </div>
 
-      <div class="col-lg-4 mb-4 mb-lg-0">
-        <div
-          class="bg-image hover-overlay ripple shadow-1-strong rounded"
-          data-ripple-color="light"
-        >
-          <img
-            src="assets/img/csoon.jpg"
-            class="w-100"
-          />
-          <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal2">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-          </a>
-        </div>
-      </div>
+
 
       <div class="col-lg-4 mb-4 mb-lg-0">
         <div
           class="bg-image hover-overlay ripple shadow-1-strong rounded"
           data-ripple-color="light"
         >
+        <a href="https://olxclone-mhdyaseen.netlify.app/">
           <img
-            src="assets/img/csoon.jpg"
-            class="w-100"
+            src="assets/img/OLX.png"
+            class="w-100"  style="height: 196.88px; box-shadow: 10px 10px 5px #ccc;"
           />
+          </a>
+          <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal2">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+          </a>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <div
+          class="bg-image hover-overlay ripple shadow-1-strong rounded"
+          data-ripple-color="light"
+        >
+        <a href="https://lively-jalebi-ec3ce7.netlify.app/"> 
+          <img
+            src="assets/img/Netflix.png"
+            class="w-100 "  style="height: 196.88px; box-shadow: 10px 10px 5px #ccc;"
+          />
+        </a>
           <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal3">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
           </a>
         </div>
       </div>
+
+
     </div>
   </section>
   <!-- Section: Images -->
@@ -631,7 +641,7 @@
                       </h5>
                     </div>
                     <div>
-                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                      <form  role="form" id="submit-form"  >
                         <div class="row">
                           <div class="col-md-12 mb-3">
                             <div class="form-group">
@@ -658,9 +668,10 @@
                             </div>
                           </div>
                           <div class="col-md-12 text-center mb-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                            <div id="loading" ><img src="/assets/img/loader.gif" alt="Computer man" style="width:65px;height:65px;">
+                            </div>
+                            <div id="error-message"></div>
+                            <div id="sent-message"></div>
                           </div>
                           <div class="col-md-12 text-center">
                             <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
@@ -719,8 +730,8 @@
           <div class="copyright-box">
             <p class="copyright">&copy; All Rights Reserved</p>
             <div class="credits">
-              
-              Designed by <a href="https://bootstrapmade.com/">Mohammed Yaseen</a>
+              <!--Designed by <a href="https://bootstrapmade.com/">Mohammed Yaseen</a> -->
+              Designed by <a href="https://mohammedyaseen.online/">Mohammed Yaseen</a>
             </div>
           </div>
         </div>
@@ -730,12 +741,38 @@
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <div id="preloader"></div>
+
+  <script>
+    var spinner = $('#loading');
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        spinner.show();
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbwDlobUEiEhyYKtnuegattSiYx9cabZl_-0qcH_y-IP3t4GAIPqkKvTGtTbQlR8414L/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+              spinner.hide();
+              text="Your message has been sent. Thank you!";
+              document.getElementById("sent-message").innerHTML = text;
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+              spinner.hide();
+              alert("some error happens")
+              text="Some error happend try email directly"
+              document.getElementById("error-message").innerHTML = text;
+             
+                
+            }
+        })
+    })
+</script>
   <script src="https://kit.fontawesome.com/7e18731703.js" crossorigin="anonymous"></script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
   <script src="assets/vendor/counterup/jquery.counterup.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>

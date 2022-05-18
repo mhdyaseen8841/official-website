@@ -288,6 +288,10 @@ a:hover {
   width: 25px;
 }
 
+#loading{
+  display: none;
+}
+
 /*--/ Scrolltop s /--*/
 .scrolltop-mf {
   position: relative;
